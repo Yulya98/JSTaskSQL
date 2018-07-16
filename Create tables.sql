@@ -9,12 +9,6 @@ Insert into Shop values('B','B');
 Insert into Shop values('C','C');
 Insert into Shop values('D','D');
 
-Drop table Product;
-Drop table Shop;
-Drop table Orders;
-Drop table OrdersToProduct;
-Drop table Customer;
-
 Create table Product(
 IdOfProduct int identity(1,1),
 IdOfShop int,
@@ -49,7 +43,6 @@ Insert into Customer values('Petya Petrov');
 Insert into Customer values('Ivan Sidorov');
 Insert into Customer values('Petya Sidorov');
 
-Drop table Orders;
 Create table Orders(
 IdOfOrder int identity(1,1),
 IdOfCustomer int,
@@ -81,8 +74,6 @@ From Product inner join Orders on
 Product.IdOfProduct =Orders.IdOfProduct
 where Orders.IdOfOrder = 3)
 where IdOfOrder = 3;
-
-Select * From Orders;
 
 Insert into Orders (IdOfCustomer,CountOfProduct,IdOfProduct,DateOfOrder) values(3,3,22,'2014-12-05');
 Update Orders Set SumOfProduct=(Select Product.Price*Orders.CountOfProduct 
